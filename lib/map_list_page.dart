@@ -22,6 +22,18 @@ class MapListPage extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           ListTile(
+            title: const Text('Ukraine Deep State Map'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const MyHomePage(
+                        title: 'Ukraine Deep State Map',
+                        url: "https://deepstatemap.live/en#6/49.438/32.053")),
+              );
+            },
+          ),
+          ListTile(
             title: const Text('Ukraine War Events Map Day 507'),
             onTap: () {
               Navigator.push(

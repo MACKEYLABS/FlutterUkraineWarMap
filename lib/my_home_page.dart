@@ -58,8 +58,8 @@ class _MyHomePageState extends State<MyHomePage> {
           IconButton(
             icon: Icon(Icons.home),
             onPressed: () {
-              Navigator.popUntil(
-                  context, ModalRoute.withName(Navigator.defaultRouteName));
+              Navigator.pop(context);
+              //Until(context, ModalRoute.withName(Navigator.defaultRouteName));
             },
           ),
         ],

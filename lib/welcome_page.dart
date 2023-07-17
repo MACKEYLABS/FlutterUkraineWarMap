@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'map_list_page.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -10,6 +11,21 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomePageState extends State<WelcomePage> {
   bool _disclaimerChecked = false;
+
+  late YoutubePlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = YoutubePlayerController(
+      initialVideoId:
+          YoutubePlayer.convertUrlToId("https://youtu.be/IcOdJf0TDb8")!,
+      flags: YoutubePlayerFlags(
+        autoPlay: true,
+        mute: true,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +43,10 @@ class _WelcomePageState extends State<WelcomePage> {
             Container(
               margin: const EdgeInsets.all(20),
               height: 200,
-              child: Image.asset('assets/warmap.jpeg'),
+              child: YoutubePlayer(
+                controller: _controller,
+                showVideoProgressIndicator: true,
+              ),
             ),
             CheckboxListTile(
               value: _disclaimerChecked,
@@ -57,5 +76,11 @@ class _WelcomePageState extends State<WelcomePage> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
   }
 }
