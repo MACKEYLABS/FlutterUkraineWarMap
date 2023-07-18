@@ -21,7 +21,7 @@ class _WelcomePageState extends State<WelcomePage> {
       initialVideoId:
           YoutubePlayer.convertUrlToId("https://youtu.be/IcOdJf0TDb8")!,
       flags: const YoutubePlayerFlags(
-        autoPlay: true,
+        autoPlay: false,
         mute: false,
       ),
     );
@@ -64,7 +64,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 color: Colors.lightBlue[700],
               ),
             ),
-            const SizedBox(height: 20), // provide some spacing
+            const SizedBox(height: 20),
             Container(
               margin: const EdgeInsets.all(20),
               child: AspectRatio(
@@ -75,16 +75,6 @@ class _WelcomePageState extends State<WelcomePage> {
                 ),
               ),
             ),
-
-            /*SizedBox(height: 20), // provide some spacing
-            Container(
-              margin: const EdgeInsets.all(20),
-              height: 300,
-              child: YoutubePlayer(
-                controller: _controller,
-                showVideoProgressIndicator: true,
-              ),
-            ),*/
             const SizedBox(height: 20), // provide some spacing
             CheckboxListTile(
               value: _disclaimerChecked,
@@ -106,7 +96,10 @@ class _WelcomePageState extends State<WelcomePage> {
             const SizedBox(height: 20), // provide some spacing
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white, backgroundColor: Colors.blue, padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.blue,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                 textStyle: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -119,8 +112,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   ? () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => const MapListPage()),
+                        MaterialPageRoute(builder: (context) => MapListPage()),
                       );
                     }
                   : null,
