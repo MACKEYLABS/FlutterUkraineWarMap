@@ -20,9 +20,9 @@ class _WelcomePageState extends State<WelcomePage> {
     _controller = YoutubePlayerController(
       initialVideoId:
           YoutubePlayer.convertUrlToId("https://youtu.be/IcOdJf0TDb8")!,
-      flags: YoutubePlayerFlags(
+      flags: const YoutubePlayerFlags(
         autoPlay: true,
-        mute: true,
+        mute: false,
       ),
     );
   }
@@ -31,23 +31,61 @@ class _WelcomePageState extends State<WelcomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Welcome"),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.blue, Colors.yellow],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+        ),
+        title: const Text(
+          "Ukraine War Map",
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text("Welcome to the Ukraine War map",
-                style: TextStyle(fontSize: 24)),
+            Text(
+              "Welcome to the Ukraine War map",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 36,
+                fontWeight: FontWeight.bold,
+                color: Colors.lightBlue[700],
+              ),
+            ),
+            const SizedBox(height: 20), // provide some spacing
             Container(
               margin: const EdgeInsets.all(20),
-              height: 200,
+              child: AspectRatio(
+                aspectRatio: 16 / 9,
+                child: YoutubePlayer(
+                  controller: _controller,
+                  showVideoProgressIndicator: true,
+                ),
+              ),
+            ),
+
+            /*SizedBox(height: 20), // provide some spacing
+            Container(
+              margin: const EdgeInsets.all(20),
+              height: 300,
               child: YoutubePlayer(
                 controller: _controller,
                 showVideoProgressIndicator: true,
               ),
-            ),
+            ),*/
+            const SizedBox(height: 20), // provide some spacing
             CheckboxListTile(
               value: _disclaimerChecked,
               onChanged: (newValue) {
@@ -56,11 +94,27 @@ class _WelcomePageState extends State<WelcomePage> {
                 });
               },
               title: const Text(
-                  "I understand that I may view combat footage and I am over the age of 18 years old."),
+                "The content that is shown on the war map links may contain graphic images and video. By selecting this checkbox you agree that you are over the age of 18.",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.white,
+                ),
+              ),
               controlAffinity:
                   ListTileControlAffinity.leading, //  <-- leading Checkbox
             ),
+            const SizedBox(height: 20), // provide some spacing
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white, backgroundColor: Colors.blue, padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                textStyle: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+              ),
               onPressed: _disclaimerChecked
                   ? () {
                       Navigator.push(
