@@ -21,7 +21,7 @@ class _WelcomePageState extends State<WelcomePage> {
       initialVideoId:
           YoutubePlayer.convertUrlToId("https://youtu.be/IcOdJf0TDb8")!,
       flags: const YoutubePlayerFlags(
-        autoPlay: false,
+        autoPlay: true,
         mute: false,
       ),
     );

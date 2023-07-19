@@ -17,9 +17,8 @@ class MyApp extends StatelessWidget {
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        //You can customize your dark theme here as much as you like
       ),
-      themeMode: ThemeMode.dark, // Add this line.
+      themeMode: ThemeMode.dark,
       home: const WelcomePage(),
     );
   }

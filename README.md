@@ -1,4 +1,16 @@
-# FlutterUkraineWarMap
+# ukraine_war
 
-This Flutter mobile application has uploaded urls that take the user to Google Maps so they can view combat footage from that day.
-It also has links to the Ukraines deep state map that tracks the war.
+A new Flutter project.
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

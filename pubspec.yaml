@@ -1,0 +1,39 @@
+name: ukraine_war
+description: A new Flutter project.
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  youtube_player_flutter: ^8.0.0
+  webview_flutter: ^4.2.2
+  webview_flutter_android: ^3.0.0
+  cupertino_icons: ^1.0.2
+  google_maps_flutter: ^2.0.10
+  flutter_webview_plugin: ^0.4.0
+  webview_flutter_wkwebview: ^3.7.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^2.0.0
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/warmap.jpeg
+    - assets/day508.jpeg
+    - assets/day507.jpeg
+    - assets/day506.jpeg
+    - assets/day505.jpeg
+    - assets/day504.jpeg
+    - assets/day503.jpeg
